@@ -20,7 +20,11 @@ class AppTest {
         int[] arrayInt = new int[] { 1, 2, 3, 4, 5, 6, 9, 7 };
         assertEquals(8, gestorArrays.ElementsCount(arrayInt));
     }
-
+    @Test
+    public void testCountElementEmpty() {
+        int[] arrayInt = new int[] {};
+        assertEquals(0, gestorArrays.ElementsCount(arrayInt));
+    }
     // Test firstPosition
     @Test
     public void testFirstValue() {
