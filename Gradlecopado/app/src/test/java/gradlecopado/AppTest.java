@@ -20,17 +20,28 @@ class AppTest {
         int[] arrayInt = new int[] { 1, 2, 3, 4, 5, 6, 9, 7 };
         assertEquals(8, gestorArrays.ElementsCount(arrayInt));
     }
+    //Count elemnts empty 
     @Test
     public void testCountElementEmpty() {
         int[] arrayInt = new int[] {};
         assertEquals(0, gestorArrays.ElementsCount(arrayInt));
     }
+
     // Test firstPosition
     @Test
     public void testFirstValue() {
         int[] array = new int[] { 1, 2, 3, 4, 5, 6, 9, 7 };
         assertEquals(1, gestorArrays.firstElement(array));
     }
+
+   
+    // Test firstPosition null
+    @Test
+    public void testFirstValueEmpty() {
+        int[] array = new int[] {};
+        assertNull(gestorArrays.firstElement(array));
+    }
+   
 
     // Test for the lastetPostion
     @Test
@@ -44,7 +55,8 @@ class AppTest {
     public void thirdPosEmpty() {
         int[] array = { 1, 2 };
         IllegalArgumentException exception = assertThrows(IllegalArgumentException.class,
-                () -> gestorArrays.thirdPosition(array));
+                () -> gestorArrays.thirdPosition(array)); //funcion flecha revisar conceptos 
+
         assertEquals("The array is no longer than 3 numbers ", exception.getMessage());
     }
 
@@ -66,6 +78,8 @@ class AppTest {
     @Test
     public void testMediaEmpty() {
         int[] array = {};
+        //Double.nan es parecido a un null para doubles  maneja el comportamiento de la funcion 
+        //es si la funcion devuelve   0 o negativo
         assertEquals(Double.NaN, gestorArrays.mediaTotal(array));
     }
 }
